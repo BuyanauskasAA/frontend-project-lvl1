@@ -1,6 +1,5 @@
 import readlineSync from 'readline-sync';
-import getRandomInt from './getRandomInt.js';
-import isEven from './isEven.js';
+import { isEven, getRandomInt } from './index.js';
 
 export default (questionsCount) => {
   const name = readlineSync.question('May I have your name? ');
@@ -14,7 +13,7 @@ export default (questionsCount) => {
     const answer = readlineSync.question('Your answer: ');
 
     if (isEven(randomInt) !== answer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer is '${isEven(randomInt)}'.\nLet's try again, ${name}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven(randomInt)}'.\nLet's try again, ${name}!`);
       break;
     }
     console.log('Correct!');
