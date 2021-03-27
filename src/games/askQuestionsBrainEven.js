@@ -8,12 +8,13 @@ export default (questionsCount) => {
 
   for (let i = 0; i < questionsCount; i += 1) {
     const randomInt = getRandomInt(1, 100);
+    const evenInt = isEven(randomInt);
 
     console.log(`Question: ${randomInt}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if (isEven(randomInt) !== answer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven(randomInt)}'.\nLet's try again, ${name}!`);
+    if (evenInt !== answer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${evenInt}'.\nLet's try again, ${name}!`);
       break;
     }
     console.log('Correct!');
