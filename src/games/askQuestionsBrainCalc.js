@@ -10,12 +10,13 @@ export default (questionsCount) => {
     const randomInt1 = getRandomInt(1, 20);
     const randomInt2 = getRandomInt(1, 20);
     const randomOp = getRandomOp();
+    const resultOfOps = makeOps(randomInt1, randomInt2, randomOp);
 
-    console.log(`Question: ${randomInt1}${randomOp}${randomInt2}`);
+    console.log(`Question: ${randomInt1} ${randomOp} ${randomInt2}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if (makeOps(randomInt1, randomInt2, randomOp) !== answer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${makeOps(randomInt1, randomInt2, randomOp)}'.\nLet's try again, ${name}!`);
+    if (resultOfOps !== answer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${resultOfOps}'.\nLet's try again, ${name}!`);
       break;
     }
     console.log('Correct!');
