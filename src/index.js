@@ -27,3 +27,13 @@ export const makeOps = (num1, num2, op) => {
   }
   return result.toString();
 };
+
+export const getGcp = (num1, num2) => {
+  let result = 0;
+  for (let i = 1; i <= num1 || i <= num2; i += 1) {
+    if (num1 % i === 0 && num2 % i === 0) {
+      result = i;
+    }
+  }
+  return result.toString();
+};
