@@ -21,7 +21,7 @@ export const isPrime = (num) => {
 };
 
 export default () => {
-  const conditions = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+  const conditions = "Otherwise answer 'no'.";
   const name = showPreviewAndGetName(conditions);
 
   const questionCount = 3;
