@@ -1,7 +1,6 @@
 import getRandomInt from '../utils.js';
 import {
   askName,
-  greetings,
   askQuestion,
   getFeedBack,
   isAnswerCorrect,
@@ -22,8 +21,6 @@ export const isPrime = (num) => {
 };
 
 export default () => {
-  greetings();
-
   const name = askName();
 
   const condition = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
@@ -44,9 +41,9 @@ export default () => {
 
     status = isAnswerCorrect(answer, correctAnswer);
     count += 1;
+  }
 
-    if (count === questionCount) {
-      congratulations(name);
-    }
+  if (status && count === questionCount) {
+    congratulations(name);
   }
 };

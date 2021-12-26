@@ -2,10 +2,9 @@ import getRandomInt from '../utils.js';
 import {
   askName,
   askQuestion,
-  greetings,
-  congratulations,
-  isAnswerCorrect,
   getFeedBack,
+  isAnswerCorrect,
+  congratulations,
 } from '../index.js';
 
 const getRandomOperator = () => {
@@ -30,8 +29,6 @@ const makeOperation = (num1, num2, operator) => {
 };
 
 export default () => {
-  greetings();
-
   const name = askName();
 
   const conditions = 'What is the result of the expression?';
@@ -54,9 +51,9 @@ export default () => {
 
     status = isAnswerCorrect(answer, correctAnswer);
     count += 1;
+  }
 
-    if (count === questionCount) {
-      congratulations(name);
-    }
+  if (status && count === questionCount) {
+    congratulations(name);
   }
 };

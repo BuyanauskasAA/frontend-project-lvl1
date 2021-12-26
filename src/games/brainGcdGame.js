@@ -1,7 +1,6 @@
 import getRandomInt from '../utils.js';
 import {
   askName,
-  greetings,
   askQuestion,
   getFeedBack,
   isAnswerCorrect,
@@ -19,8 +18,6 @@ const getGcd = (num1, num2) => {
 };
 
 export default () => {
-  greetings();
-
   const name = askName();
 
   const condition = 'Find the greatest common divisor of given numbers.';
@@ -42,9 +39,9 @@ export default () => {
 
     status = isAnswerCorrect(answer, correctAnswer);
     count += 1;
+  }
 
-    if (count === questionCount) {
-      congratulations(name);
-    }
+  if (status && count === questionCount) {
+    congratulations(name);
   }
 };

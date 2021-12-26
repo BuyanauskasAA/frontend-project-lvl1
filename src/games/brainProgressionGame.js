@@ -1,6 +1,5 @@
 import getRandomInt from '../utils.js';
 import {
-  greetings,
   askName,
   askQuestion,
   getFeedBack,
@@ -35,8 +34,6 @@ const getHiddenNumber = (progressionLength, progressionStart, progressionStep, h
 };
 
 export default () => {
-  greetings();
-
   const name = askName();
 
   const condition = 'What number is missing in the progression?';
@@ -61,9 +58,9 @@ export default () => {
 
     status = isAnswerCorrect(answer, correctAnswer);
     count += 1;
+  }
 
-    if (count === questionCount) {
-      congratulations(name);
-    }
+  if (status && count === questionCount) {
+    congratulations(name);
   }
 };
