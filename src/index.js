@@ -1,10 +1,11 @@
 import readlineSync from 'readline-sync';
 
-export const askName = () => {
+export const showPreviewAndGetName = (conditions) => {
   const greetings = 'Welcome to the Brain Games!';
   console.log(greetings);
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
+  console.log(conditions);
   return name;
 };
 

@@ -1,6 +1,6 @@
 import getRandomInt from '../utils.js';
 import {
-  askName,
+  showPreviewAndGetName,
   askQuestion,
   getFeedBack,
   isAnswerCorrect,
@@ -34,10 +34,8 @@ const getHiddenNumber = (progressionLength, progressionStart, progressionStep, h
 };
 
 export default () => {
-  const name = askName();
-
-  const condition = 'What number is missing in the progression?';
-  console.log(condition);
+  const conditions = 'What number is missing in the progression?';
+  const name = showPreviewAndGetName(conditions);
 
   const questionCount = 3;
   const progressionLength = 10;

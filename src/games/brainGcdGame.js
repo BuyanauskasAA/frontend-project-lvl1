@@ -1,6 +1,6 @@
 import getRandomInt from '../utils.js';
 import {
-  askName,
+  showPreviewAndGetName,
   askQuestion,
   getFeedBack,
   isAnswerCorrect,
@@ -18,10 +18,8 @@ const getGcd = (num1, num2) => {
 };
 
 export default () => {
-  const name = askName();
-
-  const condition = 'Find the greatest common divisor of given numbers.';
-  console.log(condition);
+  const conditions = 'Find the greatest common divisor of given numbers.';
+  const name = showPreviewAndGetName(conditions);
 
   const questionCount = 3;
   let status = true;

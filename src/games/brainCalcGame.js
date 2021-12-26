@@ -1,6 +1,6 @@
 import getRandomInt from '../utils.js';
 import {
-  askName,
+  showPreviewAndGetName,
   askQuestion,
   getFeedBack,
   isAnswerCorrect,
@@ -29,10 +29,8 @@ const makeOperation = (num1, num2, operator) => {
 };
 
 export default () => {
-  const name = askName();
-
   const conditions = 'What is the result of the expression?';
-  console.log(conditions);
+  const name = showPreviewAndGetName(conditions);
 
   const questionCount = 3;
   let status = true;

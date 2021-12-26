@@ -1,6 +1,6 @@
 import getRandomInt from '../utils.js';
 import {
-  askName,
+  showPreviewAndGetName,
   askQuestion,
   getFeedBack,
   isAnswerCorrect,
@@ -10,10 +10,8 @@ import {
 const isEven = (num) => (num % 2 === 0);
 
 export default () => {
-  const name = askName();
-
-  const condition = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-  console.log(condition);
+  const conditions = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+  const name = showPreviewAndGetName(conditions);
 
   const questionCount = 3;
   let status = true;
