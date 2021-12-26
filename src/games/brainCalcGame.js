@@ -46,7 +46,7 @@ export default () => {
     const num2 = getRandomInt();
     const operator = getRandomOperator();
     const correctAnswer = makeOperation(num1, num2, operator);
-    const question = `${num1}${operator}${num2}`;
+    const question = `${num1} ${operator} ${num2}`;
 
     const answer = askQuestion(question);
 
