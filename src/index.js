@@ -30,16 +30,6 @@ export const congratulations = (name) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export const getGcd = (num1, num2) => {
-  let result = 0;
-  for (let i = 1; i <= num1 || i <= num2; i += 1) {
-    if (num1 % i === 0 && num2 % i === 0) {
-      result = i;
-    }
-  }
-  return result.toString();
-};
-
 export const getProgression = (prLength, startOfPr, stepOfPr, hiddenIndex) => {
   const result = [];
   let current = startOfPr;
