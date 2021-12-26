@@ -1,31 +1,40 @@
+import readlineSync from 'readline-sync';
+
+export const greetings = () => {
+  console.log('Welcome to the Brain Games!');
+};
+
+export const askName = () => {
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+  return name;
+};
+
+export const askQuestion = (question) => {
+  console.log(`Question: ${question}`);
+  const answer = readlineSync.question('Your answer: ');
+  return answer;
+};
+
+export const isAnswerCorrect = (answer, correctAnswer) => (answer === correctAnswer);
+
+export const getFeedBack = (answer, correctAnswer, name) => {
+  if (!isAnswerCorrect(answer, correctAnswer)) {
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
+  } else {
+    console.log('Correct!');
+  }
+};
+
+export const congratulations = (name) => {
+  console.log(`Congratulations, ${name}!`);
+};
+
 export const isEven = (num) => {
   if (num % 2 === 0) {
     return 'yes';
   }
   return 'no';
-};
-
-export const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-
-export const getRandomOp = () => {
-  const operators = ['+', '-', '*'];
-  const index = Math.floor(Math.random() * operators.length);
-  const operator = operators[index];
-  return operator;
-};
-
-export const makeOps = (num1, num2, op) => {
-  let result = 0;
-  if (op === '+') {
-    result = num1 + num2;
-  }
-  if (op === '-') {
-    result = num1 - num2;
-  }
-  if (op === '*') {
-    result = num1 * num2;
-  }
-  return result.toString();
 };
 
 export const getGcd = (num1, num2) => {

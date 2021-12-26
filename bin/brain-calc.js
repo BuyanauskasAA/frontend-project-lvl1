@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import askQuestions from '../src/games/askQuestionsBrainCalc.js';
+import brainCalcGame from '../src/games/brainCalcGame.js';
 
-console.log('Welcome to the Brain Games!');
-askQuestions(3);
+brainCalcGame();
