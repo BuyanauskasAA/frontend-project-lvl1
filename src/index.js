@@ -30,13 +30,6 @@ export const congratulations = (name) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export const isEven = (num) => {
-  if (num % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
-
 export const getGcd = (num1, num2) => {
   let result = 0;
   for (let i = 1; i <= num1 || i <= num2; i += 1) {
