@@ -2,4 +2,4 @@
 
 import brainPrimeGame from '../src/games/brainPrimeGame.js';
 
-brainPrimeGame(3);
+brainPrimeGame();
