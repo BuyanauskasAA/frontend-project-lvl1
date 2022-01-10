@@ -9,21 +9,25 @@ import {
 
 const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
-  const index = Math.floor(Math.random() * operators.length);
+  const index = getRandomInt(1, operators.length - 1);
   const operator = operators[index];
   return operator;
 };
 
-const makeOperation = (num1, num2, operator) => {
+const calculate = (num1, num2, operator) => {
   let result = 0;
-  if (operator === '+') {
-    result = num1 + num2;
-  }
-  if (operator === '-') {
-    result = num1 - num2;
-  }
-  if (operator === '*') {
-    result = num1 * num2;
+  switch (operator) {
+    case '+':
+      result = num1 + num2;
+      break;
+    case '-':
+      result = num1 - num2;
+      break;
+    case '*':
+      result = num1 * num2;
+      break;
+    default:
+      result = NaN;
   }
   return result.toString();
 };
@@ -40,7 +44,7 @@ export default () => {
     const num1 = getRandomInt();
     const num2 = getRandomInt();
     const operator = getRandomOperator();
-    const correctAnswer = makeOperation(num1, num2, operator);
+    const correctAnswer = calculate(num1, num2, operator);
     const question = `${num1} ${operator} ${num2}`;
 
     const answer = askQuestion(question);
