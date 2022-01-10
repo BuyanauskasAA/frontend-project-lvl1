@@ -2,4 +2,4 @@
 
 import brainGcdGame from '../src/games/brainGcdGame.js';
 
-brainGcdGame(3);
+brainGcdGame();
