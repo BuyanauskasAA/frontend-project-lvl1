@@ -1,36 +1,16 @@
 import getRandomInt from '../utils.js';
-import {
-  showPreviewAndGetName,
-  askQuestion,
-  getFeedBack,
-  isAnswerCorrect,
-  congratulations,
-} from '../index.js';
+import askQuestions from '../index.js';
+
+const rulesOfTheGame = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
 const isEven = (num) => (num % 2 === 0);
 
+const getConditions = () => {
+  const question = getRandomInt();
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
+  return [question, correctAnswer];
+};
+
 export default () => {
-  const conditions = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-  const name = showPreviewAndGetName(conditions);
-
-  const questionCount = 3;
-  let status = true;
-  let count = 0;
-
-  while (status && count < questionCount) {
-    const num = getRandomInt();
-    const correctAnswer = isEven(num) ? 'yes' : 'no';
-    const question = `${num}`;
-
-    const answer = askQuestion(question);
-
-    getFeedBack(answer, correctAnswer, name);
-
-    status = isAnswerCorrect(answer, correctAnswer);
-    count += 1;
-  }
-
-  if (status && count === questionCount) {
-    congratulations(name);
-  }
+  askQuestions(rulesOfTheGame, getConditions);
 };

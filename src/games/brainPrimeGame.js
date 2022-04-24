@@ -1,11 +1,7 @@
 import getRandomInt from '../utils.js';
-import {
-  showPreviewAndGetName,
-  askQuestion,
-  getFeedBack,
-  isAnswerCorrect,
-  congratulations,
-} from '../index.js';
+import askQuestions from '../index.js';
+
+const rulesOfTheGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
 export const isPrime = (num) => {
   if (num < 2) {
@@ -20,28 +16,13 @@ export const isPrime = (num) => {
   return true;
 };
 
+const getConditions = () => {
+  const num = getRandomInt();
+  const correctAnswer = isPrime(num) ? 'yes' : 'no';
+  const question = `${num}`;
+  return [question, correctAnswer];
+};
+
 export default () => {
-  const conditions = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-  const name = showPreviewAndGetName(conditions);
-
-  const questionCount = 3;
-  let status = true;
-  let count = 0;
-
-  while (status && count < questionCount) {
-    const num = getRandomInt();
-    const correctAnswer = isPrime(num) ? 'yes' : 'no';
-    const question = `${num}`;
-
-    const answer = askQuestion(question);
-
-    getFeedBack(answer, correctAnswer, name);
-
-    status = isAnswerCorrect(answer, correctAnswer);
-    count += 1;
-  }
-
-  if (status && count === questionCount) {
-    congratulations(name);
-  }
+  askQuestions(rulesOfTheGame, getConditions);
 };

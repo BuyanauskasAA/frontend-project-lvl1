@@ -1,30 +1,55 @@
 import readlineSync from 'readline-sync';
 
-export const showPreviewAndGetName = (conditions) => {
-  const greetings = 'Welcome to the Brain Games!';
-  console.log(greetings);
+const showGreetings = () => {
+  console.log('Welcome to the Brain Games!');
+};
+
+const getName = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  console.log(conditions);
   return name;
 };
 
-export const askQuestion = (question) => {
+const getAnswer = (question) => {
   console.log(`Question: ${question}`);
   const answer = readlineSync.question('Your answer: ');
   return answer;
 };
 
-export const isAnswerCorrect = (answer, correctAnswer) => (answer === correctAnswer);
+const isAnswerCorrect = (answer, correctAnswer) => (answer === correctAnswer);
 
-export const getFeedBack = (answer, correctAnswer, name) => {
-  if (!isAnswerCorrect(answer, correctAnswer)) {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
-  } else {
+const getFeedBack = (answer, correctAnswer, name) => {
+  if (isAnswerCorrect(answer, correctAnswer)) {
     console.log('Correct!');
+  } else {
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
   }
 };
 
-export const congratulations = (name) => {
+const showCongratulations = (name) => {
   console.log(`Congratulations, ${name}!`);
+};
+
+export default (rulesOfTheGame, getConditions, questionCount = 3) => {
+  showGreetings();
+  const name = getName();
+  console.log(rulesOfTheGame);
+
+  let status = true;
+  let count = 0;
+
+  while (status && count < questionCount) {
+    const [question, correctAnswer] = getConditions();
+
+    const answer = getAnswer(question);
+
+    getFeedBack(answer, correctAnswer, name);
+
+    status = isAnswerCorrect(answer, correctAnswer);
+    count += 1;
+  }
+
+  if (status && count === questionCount) {
+    showCongratulations(name);
+  }
 };

@@ -1,11 +1,7 @@
 import getRandomInt from '../utils.js';
-import {
-  showPreviewAndGetName,
-  askQuestion,
-  getFeedBack,
-  isAnswerCorrect,
-  congratulations,
-} from '../index.js';
+import askQuestions from '../index.js';
+
+const rulesOfTheGame = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (num1, num2) => {
   let result = 0;
@@ -17,29 +13,14 @@ const getGcd = (num1, num2) => {
   return result.toString();
 };
 
+const getConditions = () => {
+  const num1 = getRandomInt();
+  const num2 = getRandomInt();
+  const question = `${num1} ${num2}`;
+  const correctAnswer = getGcd(num1, num2);
+  return [question, correctAnswer];
+};
+
 export default () => {
-  const conditions = 'Find the greatest common divisor of given numbers.';
-  const name = showPreviewAndGetName(conditions);
-
-  const questionCount = 3;
-  let status = true;
-  let count = 0;
-
-  while (status && count < questionCount) {
-    const num1 = getRandomInt();
-    const num2 = getRandomInt();
-    const correctAnswer = getGcd(num1, num2);
-    const question = `${num1} ${num2}`;
-
-    const answer = askQuestion(question);
-
-    getFeedBack(answer, correctAnswer, name);
-
-    status = isAnswerCorrect(answer, correctAnswer);
-    count += 1;
-  }
-
-  if (status && count === questionCount) {
-    congratulations(name);
-  }
+  askQuestions(rulesOfTheGame, getConditions);
 };

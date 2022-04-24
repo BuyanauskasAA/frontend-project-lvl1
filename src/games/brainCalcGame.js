@@ -1,11 +1,7 @@
 import getRandomInt from '../utils.js';
-import {
-  showPreviewAndGetName,
-  askQuestion,
-  getFeedBack,
-  isAnswerCorrect,
-  congratulations,
-} from '../index.js';
+import askQuestions from '../index.js';
+
+const rulesOfTheGame = 'What is the result of the expression?';
 
 const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
@@ -32,30 +28,15 @@ const calculate = (num1, num2, operator) => {
   return result.toString();
 };
 
+const getConditions = () => {
+  const num1 = getRandomInt();
+  const num2 = getRandomInt();
+  const operator = getRandomOperator();
+  const correctAnswer = calculate(num1, num2, operator);
+  const question = `${num1} ${operator} ${num2}`;
+  return [question, correctAnswer];
+};
+
 export default () => {
-  const conditions = 'What is the result of the expression?';
-  const name = showPreviewAndGetName(conditions);
-
-  const questionCount = 3;
-  let status = true;
-  let count = 0;
-
-  while (status && count < questionCount) {
-    const num1 = getRandomInt();
-    const num2 = getRandomInt();
-    const operator = getRandomOperator();
-    const correctAnswer = calculate(num1, num2, operator);
-    const question = `${num1} ${operator} ${num2}`;
-
-    const answer = askQuestion(question);
-
-    getFeedBack(answer, correctAnswer, name);
-
-    status = isAnswerCorrect(answer, correctAnswer);
-    count += 1;
-  }
-
-  if (status && count === questionCount) {
-    congratulations(name);
-  }
+  askQuestions(rulesOfTheGame, getConditions);
 };
