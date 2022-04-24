@@ -9,24 +9,13 @@ const getProgression = (progressionLength, progressionStart, progressionStep, hi
 
   for (let i = 0; i < progressionLength; i += 1) {
     current += progressionStep;
-    if (i === hiddenIndex) {
-      result.push('..');
-    } else {
-      result.push(current);
-    }
-  }
-  return result.join(' ');
-};
-
-const getHiddenNumber = (progressionLength, progressionStart, progressionStep, hiddenIndex) => {
-  const result = [];
-  let current = progressionStart;
-
-  for (let i = 0; i < progressionLength; i += 1) {
-    current += progressionStep;
     result.push(current);
   }
-  return result[hiddenIndex].toString();
+
+  const hiddenNumber = result[hiddenIndex].toString();
+  result[hiddenIndex] = '..';
+
+  return [hiddenNumber, result.join(' ')];
 };
 
 const getConditions = () => {
@@ -34,9 +23,7 @@ const getConditions = () => {
   const step = getRandomInt(1, 10);
   const progressionLength = 10;
   const hiddenIndex = getRandomInt(0, progressionLength - 1);
-  const progression = getProgression(progressionLength, start, step, hiddenIndex);
-  const correctAnswer = getHiddenNumber(progressionLength, start, step, hiddenIndex);
-  const question = `${progression}`;
+  const [correctAnswer, question] = getProgression(progressionLength, start, step, hiddenIndex);
   return [question, correctAnswer];
 };
 
