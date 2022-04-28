@@ -5,11 +5,11 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/b0e7c1016d5e3efe3394/maintainability)](https://codeclimate.com/github/BuyanauskasAA/frontend-project-lvl1/maintainability)
 
 Brain Games is a collection of five console game.
-- [Brain-Even](#brain-even)
-- [Brain-Calc](#brain-calc)
-- [Brain-Gcd](#brain-gcd)
-- [Brain-Progression](brain-progression)
-- [Brain-Prime](#brain-prime)
+- [Brain-Even](#brain-even) - Find out if the number is an even number.
+- [Brain-Calc](#brain-calc) - Calculate the result of the expression.
+- [Brain-Gcd](#brain-gcd) - Find the greatest common divisor of given numbers.
+- [Brain-Progression](brain-progression) - Find the missing number in progression.
+- [Brain-Prime](#brain-prime) - Find ou if the number is a prime number.
 
 ## Setup
 
