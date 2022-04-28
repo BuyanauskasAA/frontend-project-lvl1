@@ -10,14 +10,14 @@ const getGcd = (num1, num2) => {
       result = i;
     }
   }
-  return result.toString();
+  return result;
 };
 
 const getConditions = () => {
   const num1 = getRandomInt();
   const num2 = getRandomInt();
   const question = `${num1} ${num2}`;
-  const correctAnswer = getGcd(num1, num2);
+  const correctAnswer = getGcd(num1, num2).toString();
   return [question, correctAnswer];
 };
 
