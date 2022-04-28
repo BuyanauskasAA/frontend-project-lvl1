@@ -9,10 +9,9 @@ export default (rulesOfTheGame, getConditions) => {
   console.log(rulesOfTheGame);
 
   const questionCount = 3;
-  let status = true;
   let count = 0;
 
-  while (status && count < questionCount) {
+  while (count < questionCount) {
     const [question, correctAnswer] = getConditions();
 
     console.log(`Question: ${question}`);
@@ -22,13 +21,13 @@ export default (rulesOfTheGame, getConditions) => {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
+      break;
     }
 
-    status = answer === correctAnswer;
     count += 1;
   }
 
-  if (status && count === questionCount) {
+  if (count === questionCount) {
     console.log(`Congratulations, ${name}!`);
   }
 };
