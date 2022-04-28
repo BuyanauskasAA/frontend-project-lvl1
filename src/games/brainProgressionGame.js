@@ -5,10 +5,9 @@ const rulesOfTheGame = 'What number is missing in the progression?';
 
 const getProgression = (progressionLength, progressionStart, progressionStep) => {
   const result = [];
-  let current = progressionStart;
 
   for (let i = 0; i < progressionLength; i += 1) {
-    current += progressionStep;
+    const current = progressionStart + i * progressionStep;
     result.push(current);
   }
 
@@ -23,7 +22,7 @@ const getConditions = () => {
   const progression = getProgression(progressionLength, progressionStart, progressionStep);
   const correctAnswer = progression[hiddenIndex].toString();
   progression[hiddenIndex] = '..';
-  const question = progression.join(' '); 
+  const question = progression.join(' ');
 
   return [question, correctAnswer];
 };
