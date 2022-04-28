@@ -19,7 +19,7 @@ export const isPrime = (num) => {
 const getConditions = () => {
   const num = getRandomInt();
   const correctAnswer = isPrime(num) ? 'yes' : 'no';
-  const question = `${num}`;
+  const question = num.toString();
   return [question, correctAnswer];
 };
 
