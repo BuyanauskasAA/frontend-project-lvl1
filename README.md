@@ -17,12 +17,6 @@ Brain Games is a collection of five console game.
 make install
 ```
 
-## Run linter
-
-```sh
-make lint
-```
-
 ## Brain-Even:
 [![asciicast](https://asciinema.org/a/iYEjYmmoeN68YbmxVlc2zWjCY.svg)](https://asciinema.org/a/iYEjYmmoeN68YbmxVlc2zWjCY)
 
