@@ -3,7 +3,7 @@ import askQuestions from '../index.js';
 
 const rulesOfTheGame = 'What number is missing in the progression?';
 
-const getProgression = (progressionLength, progressionStart, progressionStep, hiddenIndex) => {
+const getProgression = (progressionLength, progressionStart, progressionStep) => {
   const result = [];
   let current = progressionStart;
 
@@ -12,18 +12,19 @@ const getProgression = (progressionLength, progressionStart, progressionStep, hi
     result.push(current);
   }
 
-  const hiddenNumber = result[hiddenIndex].toString();
-  result[hiddenIndex] = '..';
-
-  return [hiddenNumber, result.join(' ')];
+  return result;
 };
 
 const getConditions = () => {
-  const start = getRandomInt();
-  const step = getRandomInt(1, 10);
+  const progressionStart = getRandomInt();
+  const progressionStep = getRandomInt(1, 10);
   const progressionLength = 10;
   const hiddenIndex = getRandomInt(0, progressionLength - 1);
-  const [correctAnswer, question] = getProgression(progressionLength, start, step, hiddenIndex);
+  const progression = getProgression(progressionLength, progressionStart, progressionStep);
+  const correctAnswer = progression[hiddenIndex].toString();
+  progression[hiddenIndex] = '..';
+  const question = progression.join(' '); 
+
   return [question, correctAnswer];
 };
 
