@@ -5,11 +5,11 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/b0e7c1016d5e3efe3394/maintainability)](https://codeclimate.com/github/BuyanauskasAA/frontend-project-lvl1/maintainability)
 
 Brain Games is a collection of five console game.
-- [Brain-Even]
-- [Brain-Calc]
-- [Brain-Gcd]
-- [Brain-Progression]
-- [Brain-Prime]
+- [Brain-Even](#brain-even)
+- [Brain-Calc](#brain-calc)
+- [Brain-Gcd](#brain-gcd)
+- [Brain-Progression](brain-progression)
+- [Brain-Prime](#brain-prime)
 
 ## Setup
 
