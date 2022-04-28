@@ -15,6 +15,7 @@ make install
 ```sh
 make lint
 ```
+
 ### Brain-Even:
 [![asciicast](https://asciinema.org/a/iYEjYmmoeN68YbmxVlc2zWjCY.svg)](https://asciinema.org/a/iYEjYmmoeN68YbmxVlc2zWjCY)
 
