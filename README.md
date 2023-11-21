@@ -9,7 +9,7 @@ Brain Games is a collection of five console game.
 - [Brain-Calc](#brain-calc) - Calculate the result of the expression.
 - [Brain-Gcd](#brain-gcd) - Find the greatest common divisor of given numbers.
 - [Brain-Progression](brain-progression) - Find the missing number in progression.
-- [Brain-Prime](#brain-prime) - Find ou if the number is a prime number.
+- [Brain-Prime](#brain-prime) - Find out if the number is a prime number.
 
 ## Setup
 
